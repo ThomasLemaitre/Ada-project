@@ -1,0 +1,44 @@
+graph: { title: "b__main.adb"
+node: { title: "ada_main__Tsec_default_sized_stacksBIP" label: "tsec_default_sized_stacksbip\nb__main.adb:58:4\n32 bytes (static)" }
+node: { title: "system__secondary_stack__ss_stackIP" label: "Ss_Stackip\nC:\gnat\2021-arm-elf\arm-eabi\lib\gnat\ravenscar-sfp-stm32f429disco\gnat\s-secsta.ads:106:9" shape : ellipse }
+edge: { sourcename: "ada_main__Tsec_default_sized_stacksBIP" targetname: "system__secondary_stack__ss_stackIP" label: "b__main.adb:58:4" }
+node: { title: "adainit" label: "adainit\nb__main.adb:61:4\n8 bytes (static)" }
+node: { title: "ada_main___elabb" label: "e59b\nb__main.adb:72:15" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "ada_main___elabb" label: "b__main.adb:72:15" }
+node: { title: "ada__real_time___elabb" label: "e61b\nb__main.adb:78:20" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "ada__real_time___elabb" label: "b__main.adb:78:20" }
+node: { title: "system__tasking__protected_objects___elabb" label: "e63b\nb__main.adb:80:39" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "system__tasking__protected_objects___elabb" label: "b__main.adb:80:39" }
+node: { title: "system__tasking__protected_objects__multiprocessors___elabb" label: "e65b\nb__main.adb:82:55" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "system__tasking__protected_objects__multiprocessors___elabb" label: "b__main.adb:82:55" }
+node: { title: "system__tasking__restricted__stages___elabb" label: "e67b\nb__main.adb:84:39" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "system__tasking__restricted__stages___elabb" label: "b__main.adb:84:39" }
+node: { title: "ravenscar_time___elabb" label: "e69b\nb__main.adb:93:21" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "ravenscar_time___elabb" label: "b__main.adb:93:21" }
+node: { title: "stm32__adc___elabs" label: "e71b\nb__main.adb:98:16" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "stm32__adc___elabs" label: "b__main.adb:98:16" }
+node: { title: "stm32__dma2d__interrupt___elabb" label: "e73b\nb__main.adb:103:28" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "stm32__dma2d__interrupt___elabb" label: "b__main.adb:103:28" }
+node: { title: "stm32__dma2d_bitmap___elabs" label: "e75b\nb__main.adb:106:25" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "stm32__dma2d_bitmap___elabs" label: "b__main.adb:106:25" }
+node: { title: "stm32__device___elabs" label: "e77b\nb__main.adb:116:19" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "stm32__device___elabs" label: "b__main.adb:116:19" }
+node: { title: "stm32__ltdc___elabb" label: "e79b\nb__main.adb:124:17" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "stm32__ltdc___elabb" label: "b__main.adb:124:17" }
+node: { title: "framebuffer_ili9341___elabs" label: "e81b\nb__main.adb:128:26" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "framebuffer_ili9341___elabs" label: "b__main.adb:128:26" }
+node: { title: "touch_panel_stmpe811___elabs" label: "e83b\nb__main.adb:130:27" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "touch_panel_stmpe811___elabs" label: "b__main.adb:130:27" }
+node: { title: "stm32__board___elabs" label: "e85b\nb__main.adb:131:18" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "stm32__board___elabs" label: "b__main.adb:131:18" }
+node: { title: "lcd_std_out___elabb" label: "e87b\nb__main.adb:137:18" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "lcd_std_out___elabb" label: "b__main.adb:137:18" }
+node: { title: "stm32__user_button___elabb" label: "e89b\nb__main.adb:139:24" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "stm32__user_button___elabb" label: "b__main.adb:139:24" }
+node: { title: "main" label: "main\nb__main.adb:146:4\n16 bytes (static)" }
+edge: { sourcename: "main" targetname: "adainit" label: "b__main.adb:151:7" }
+node: { title: "_ada_main" label: "ada_main_program\nb__main.adb:143:14" shape : ellipse }
+edge: { sourcename: "main" targetname: "_ada_main" label: "b__main.adb:152:7" }
+node: { title: "ada_main___elabb" label: "ada_main\nb__main.adb:7:1\n8 bytes (static)" }
+edge: { sourcename: "ada_main___elabb" targetname: "ada_main__Tsec_default_sized_stacksBIP" label: "b__main.adb:58:4" }
+}

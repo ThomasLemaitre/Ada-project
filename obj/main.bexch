@@ -1,0 +1,28 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\Users\tcdle\Documents\ADA\Ada-project\prj.gpr
+20220126213226 7a760a2f3daf511c6cccb3db5a847341
+C:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\boards\stm32f429_discovery\stm32f429_discovery_full.gpr
+20220126211616 8051ddadc348f210bada2781997baff8
+[BOUND OBJECT FILES]
+C:\Users\tcdle\Documents\ADA\Ada-project\obj\bmp_fonts.o
+C:\Users\tcdle\Documents\ADA\Ada-project\obj\hershey_fonts.o
+C:\Users\tcdle\Documents\ADA\Ada-project\obj\bitmapped_drawing.o
+C:\Users\tcdle\Documents\ADA\Ada-project\obj\last_chance_handler.o
+C:\Users\tcdle\Documents\ADA\Ada-project\obj\lcd_std_out.o
+C:\Users\tcdle\Documents\ADA\Ada-project\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\Users\tcdle\Documents\ADA\Ada-project\obj\
+-LC:\Users\tcdle\Documents\ADA\Ada-project\obj\
+-LC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\examples\shared\common\
+-LC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\boards\stm32f429_discovery\obj\full_lib_Debug\
+-LC:\gnat\2021-arm-elf\arm-eabi\lib\gnat\ravenscar-sfp-stm32f429disco\adalib\
+-static
+-static-libgcc
+C:\gnat\2021-arm-elf\arm-eabi\lib\gnat\ravenscar-sfp-stm32f429disco\adalib\libgnarl.a
+C:\gnat\2021-arm-elf\arm-eabi\lib\gnat\ravenscar-sfp-stm32f429disco\adalib\libgnat.a

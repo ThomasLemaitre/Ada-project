@@ -1,0 +1,71 @@
+graph: { title: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb"
+edge: { sourcename: "_ada_main"
+  targetname: "7:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "main.adb:66:29"
+}
+edge: { sourcename: "_ada_main"
+  targetname: "18:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "main.adb:67:29"
+}
+edge: { sourcename: "_ada_main"
+  targetname: "7:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "main.adb:77:32"
+}
+edge: { sourcename: "_ada_main"
+  targetname: "18:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "main.adb:78:32"
+}
+edge: { sourcename: "_ada_main"
+  targetname: "7:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "main.adb:80:32"
+}
+edge: { sourcename: "_ada_main"
+  targetname: "29:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "main.adb:81:32"
+}
+node: { title: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:main__B_2___finalizer.0" label: "B_2\nC:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:84:7\n16 bytes (static)" }
+node: { title: "system__secondary_stack__ss_release" label: "Ss_Release\nC:\gnat\2021-arm-elf\arm-eabi\lib\gnat\ravenscar-sfp-stm32f429disco\gnat\s-secsta.ads:70:14" shape : ellipse }
+edge: { sourcename: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:main__B_2___finalizer.0" targetname: "system__secondary_stack__ss_release" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:84:7" }
+node: { title: "_ada_main" label: "Main\nC:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:46:1\n96 bytes (dynamic)" }
+node: { title: "framebuffer_ili9341__initialize__2" label: "Initialize\nC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\boards\stm32_common\stm32f429disco\framebuffer_ili9341.ads:46:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "framebuffer_ili9341__initialize__2" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:53:11" }
+node: { title: "framebuffer_ltdc__initialize_layer" label: "Initialize_Layer\nC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\boards\stm32_common\ltdc\framebuffer_ltdc.ads:93:25" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "framebuffer_ltdc__initialize_layer" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:54:11" }
+node: { title: "touch_panel_stmpe811__initialize__2" label: "Initialize\nC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\boards\stm32_common\stm32f429disco\touch_panel_stmpe811.ads:50:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "touch_panel_stmpe811__initialize__2" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:57:15" }
+node: { title: "stm32__user_button__initialize" label: "INITIALIZE\nC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\boards\stm32_common\common\stm32-user_button.ads:38:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "stm32__user_button__initialize" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:60:15" }
+node: { title: "lcd_std_out__set_font" label: "Set_Font\nC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\examples\shared\common\gui\lcd_std_out.ads:66:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "lcd_std_out__set_font" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:62:15" }
+node: { title: "framebuffer_ltdc__hidden_buffer" label: "Hidden_Buffer\nC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\boards\stm32_common\ltdc\framebuffer_ltdc.ads:146:24" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "framebuffer_ltdc__hidden_buffer" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:66:11" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "__indirect_call" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:66:29" }
+edge: { sourcename: "_ada_main" targetname: "framebuffer_ltdc__hidden_buffer" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:67:11" }
+edge: { sourcename: "_ada_main" targetname: "__indirect_call" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:67:29" }
+node: { title: "lcd_std_out__clear_screen" label: "Clear_Screen\nC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\examples\shared\common\gui\lcd_std_out.ads:74:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "lcd_std_out__clear_screen" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:69:15" }
+node: { title: "framebuffer_ltdc__update_layer" label: "Update_Layer\nC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\boards\stm32_common\ltdc\framebuffer_ltdc.ads:118:25" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "framebuffer_ltdc__update_layer" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:70:11" }
+node: { title: "stm32__user_button__has_been_pressed" label: "HAS_BEEN_PRESSED\nC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\boards\stm32_common\common\stm32-user_button.ads:42:13" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "stm32__user_button__has_been_pressed" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:73:21" }
+edge: { sourcename: "_ada_main" targetname: "framebuffer_ltdc__hidden_buffer" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:77:14" }
+edge: { sourcename: "_ada_main" targetname: "__indirect_call" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:77:32" }
+edge: { sourcename: "_ada_main" targetname: "framebuffer_ltdc__hidden_buffer" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:78:14" }
+edge: { sourcename: "_ada_main" targetname: "__indirect_call" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:78:32" }
+edge: { sourcename: "_ada_main" targetname: "framebuffer_ltdc__hidden_buffer" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:80:14" }
+edge: { sourcename: "_ada_main" targetname: "__indirect_call" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:80:32" }
+edge: { sourcename: "_ada_main" targetname: "framebuffer_ltdc__hidden_buffer" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:81:14" }
+edge: { sourcename: "_ada_main" targetname: "__indirect_call" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:81:32" }
+node: { title: "system__secondary_stack__ss_mark" label: "Ss_Mark\nC:\gnat\2021-arm-elf\arm-eabi\lib\gnat\ravenscar-sfp-stm32f429disco\gnat\s-secsta.ads:67:13" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "system__secondary_stack__ss_mark" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:84:7" }
+node: { title: "stmpe811__get_all_touch_points" label: "GET_ALL_TOUCH_POINTS\nC:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\components\src\touch_panel\stmpe811\stmpe811.ads:66:13" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "stmpe811__get_all_touch_points" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:85:50" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "__gnat_last_chance_handler" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:85:50" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "memcpy" }
+edge: { sourcename: "_ada_main" targetname: "__gnat_last_chance_handler" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:89:29" }
+edge: { sourcename: "_ada_main" targetname: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:main__B_2___finalizer.0" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:92:0" }
+edge: { sourcename: "_ada_main" targetname: "framebuffer_ltdc__update_layer" label: "C:\Users\tcdle\Documents\ADA\Ada-project\src\main.adb:95:14" }
+}

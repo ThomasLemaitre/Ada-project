@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file />
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>C:\Users\tcdle\Documents\ADA\Ada-project\prj.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 23" line=" 6" >
+      <vfs_project />
+      <vfs_file>C:\Users\tcdle\Documents\ADA\Ada-project\prj.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 19" >
+      <vfs_project />
+      <vfs_file>C:\Users\tcdle\Documents\ADA\Ada-project\prj.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project />
+      <vfs_file>C:\Users\tcdle\Documents\ADA\Ada-project\prj.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 59" line=" 5" >
+      <vfs_project />
+      <vfs_file>C:\Users\tcdle\Documents\ADA\Ada-project\prj.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project />
+      <vfs_file>C:\Users\tcdle\Documents\ADA\Ada-project\prj.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>C:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\boards\stm32f429_discovery\stm32f429_discovery_full.gpr</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 23" line=" 58" >
+      <vfs_project />
+      <vfs_file>C:\Users\tcdle\Documents\ADA\Ada-project\Ada_Drivers_Library\boards\stm32f429_discovery\stm32f429_discovery_full.gpr</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>
