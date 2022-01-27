@@ -46,7 +46,7 @@ with LCD_Std_Out;
 procedure Main
 is
    BG : Bitmap_Color := (Alpha => 255, others => 0);
-   Ball_Pos   : Point := (240, 320);
+   Ball_Pos   : Point := (40, 40);
 begin
 
    --  Initialize LCD
@@ -80,13 +80,40 @@ begin
       Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Blue);
       Display.Hidden_Buffer (1).Fill_Circle (Ball_Pos, 10);
 
+      Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Red);
+      Display.Hidden_Buffer (1).Draw_Line((30,30), (30,290));
+      Display.Hidden_Buffer (1).Draw_Line((210,30), (210,290));
+      Display.Hidden_Buffer (1).Draw_Line((0,30), (240,30));
+      Display.Hidden_Buffer (1).Draw_Line((0,290), (240,290));
+      -- 9x13
+      Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Grey);
+      for Variable in 0 .. 9 loop
+         Display.Hidden_Buffer (1).Draw_Line((30 + 20 * Variable, 30), ( 30 + 20 * Variable, 290));
+      end loop;
+      for Variable in 0 .. 13 loop
+         Display.Hidden_Buffer (1).Draw_Line((30 , 30 + 20 * Variable), ( 210 , 30 + 20 * Variable));
+      end loop;
+
 
       declare
          State : constant TP_State := Touch_Panel.Get_All_Touch_Points;
+         type LowerH is range 0 .. 30;
+         type UpperH is range 290 .. 320;
+         type LowerW is range 0 .. 30;
+         type UpperW is range 210 .. 240;
       begin
          case State'Length is
             when 1 =>
-               Ball_Pos := (State (State'First).X, State (State'First).Y);
+               if State (State'First).Y > 290 then
+                  Ball_Pos := (Ball_Pos.X, Ball_Pos.Y + 20);
+
+               elsif State (State'First).Y < 30 then
+                  Ball_Pos := (Ball_Pos.X, Ball_Pos.Y - 20);
+               elsif State (State'First).X > 210 then
+                  Ball_Pos := (Ball_Pos.X + 20, Ball_Pos.Y);
+               elsif State (State'First).X < 30 then
+                  Ball_Pos := (Ball_Pos.X + 20, Ball_Pos.Y);
+               end if;
             when others => null;
          end case;
       end;
