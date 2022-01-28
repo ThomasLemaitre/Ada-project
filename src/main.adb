@@ -42,11 +42,11 @@ with HAL.Touch_Panel;       use HAL.Touch_Panel;
 with STM32.User_Button;     use STM32;
 with BMP_Fonts;
 with LCD_Std_Out;
+with movement;
 
 procedure Main
 is
    BG : Bitmap_Color := (Alpha => 255, others => 0);
-   Ball_Pos   : Point := (40, 40);
 begin
 
    --  Initialize LCD
@@ -78,13 +78,10 @@ begin
       Display.Hidden_Buffer (1).Fill;
 
       Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Blue);
-      Display.Hidden_Buffer (1).Fill_Circle (Ball_Pos, 10);
+      Display.Hidden_Buffer (1).Fill_Circle (movement.Get_Ball_pos, 10);
 
-      Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Red);
-      Display.Hidden_Buffer (1).Draw_Line((30,30), (30,290));
-      Display.Hidden_Buffer (1).Draw_Line((210,30), (210,290));
-      Display.Hidden_Buffer (1).Draw_Line((0,30), (240,30));
-      Display.Hidden_Buffer (1).Draw_Line((0,290), (240,290));
+      movement.Create_key;
+
       -- 9x13
       Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Grey);
       for Variable in 0 .. 9 loop
@@ -95,28 +92,7 @@ begin
       end loop;
 
 
-      declare
-         State : constant TP_State := Touch_Panel.Get_All_Touch_Points;
-         type LowerH is range 0 .. 30;
-         type UpperH is range 290 .. 320;
-         type LowerW is range 0 .. 30;
-         type UpperW is range 210 .. 240;
-      begin
-         case State'Length is
-            when 1 =>
-               if State (State'First).Y > 290 then
-                  Ball_Pos := (Ball_Pos.X, Ball_Pos.Y + 20);
-
-               elsif State (State'First).Y < 30 then
-                  Ball_Pos := (Ball_Pos.X, Ball_Pos.Y - 20);
-               elsif State (State'First).X > 210 then
-                  Ball_Pos := (Ball_Pos.X + 20, Ball_Pos.Y);
-               elsif State (State'First).X < 30 then
-                  Ball_Pos := (Ball_Pos.X + 20, Ball_Pos.Y);
-               end if;
-            when others => null;
-         end case;
-      end;
+      movement.Ball_Direction;
 
       --  Update screen
       Display.Update_Layer (1, Copy_Back => True);
