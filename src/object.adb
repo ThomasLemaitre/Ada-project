@@ -38,4 +38,11 @@ package body object is
    begin
    Lose(Self);
    end;
+   
+   overriding
+   procedure Print (Self : Player; Pos : Point) is 
+   begin
+         Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Blue);
+         Display.Hidden_Buffer (1).Fill_Circle (Pos, 10);
+   end;
 end object;

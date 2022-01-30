@@ -4,7 +4,9 @@ with object;
 
 package grid is
 
-   type Matrix is array ( 0..9, 0..13) of object.Wall;
+   type Matrix is array ( 0..8, 0..12) of object.Block_Class;
    procedure Create_Grid;
+   procedure Init_Game;
+   procedure Print_game;
 
 end grid;
