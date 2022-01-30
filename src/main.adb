@@ -43,6 +43,7 @@ with STM32.User_Button;     use STM32;
 with BMP_Fonts;
 with LCD_Std_Out;
 with movement;
+with grid;
 
 procedure Main
 is
@@ -79,17 +80,12 @@ begin
 
       Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Blue);
       Display.Hidden_Buffer (1).Fill_Circle (movement.Get_Ball_pos, 10);
+      Display.Hidden_Buffer (1).Fill_Rect (((70,70),20,20));
 
-      movement.Create_key;
+      movement.Create_keys;
 
       -- 9x13
-      Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Grey);
-      for Variable in 0 .. 9 loop
-         Display.Hidden_Buffer (1).Draw_Line((30 + 20 * Variable, 30), ( 30 + 20 * Variable, 290));
-      end loop;
-      for Variable in 0 .. 13 loop
-         Display.Hidden_Buffer (1).Draw_Line((30 , 30 + 20 * Variable), ( 210 , 30 + 20 * Variable));
-      end loop;
+      grid.Create_Grid;
 
 
       movement.Ball_Direction;

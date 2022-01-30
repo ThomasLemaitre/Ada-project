@@ -1,7 +1,3 @@
-with STM32.Board;           use STM32.Board;
-with HAL.Touch_Panel;       use HAL.Touch_Panel;
-with Ada.Real_Time;         use Ada.Real_Time;
-
 package body movement is
    
    type Ball_Orientation_Mode is
@@ -13,10 +9,11 @@ package body movement is
    Max_h : constant Natural := 320;
    Max_w : constant Natural := 240;
    Offset : constant Natural := 30;
+   Box_Size : constant Natural := 20;
    Ball_Pos : Point := (40, 40);
    Ball_Orientation : Ball_Orientation_Mode := Up;
 
-   procedure Create_key is
+   procedure Create_keys is
       
       begin
       Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Red);
@@ -36,11 +33,27 @@ package body movement is
       loop
          delay until Poll_Time;
            case Ball_Orientation is
-               when Up => Ball_Pos.Y := Ball_Pos.Y + 20;
-               when Down => Ball_Pos.Y := Ball_Pos.Y - 20;
-               when Left => Ball_Pos.X := Ball_Pos.X + 20;
-               when Right => Ball_Pos.X := Ball_Pos.X - 20;
-           end case;
+            when Up => Ball_Pos.Y := Ball_Pos.Y + Box_Size;
+               if Ball_Pos.Y > Max_h - Offset then
+                  Ball_Pos.Y := Ball_Pos.Y - Box_Size * 2;
+                  Ball_Orientation := Down;
+               end if;
+            when Down => Ball_Pos.Y := Ball_Pos.Y - Box_Size;
+               if Ball_Pos.Y < Offset then
+                  Ball_Pos.Y := Ball_Pos.Y + Box_Size * 2;
+                  Ball_Orientation := Up;
+               end if;
+            when Left => Ball_Pos.X := Ball_Pos.X + Box_Size;
+               if Ball_Pos.X > Max_w - Offset then
+                  Ball_Pos.X := Ball_Pos.X - Box_Size * 2;
+                  Ball_Orientation := Right;
+               end if;
+            when Right => Ball_Pos.X := Ball_Pos.X - Box_Size;
+               if Ball_Pos.X < Offset then
+                  Ball_Pos.X := Ball_Pos.X + Box_Size * 2;
+                  Ball_Orientation := Left;
+               end if;
+         end case;
            Poll_Time := Poll_Time + Period;
       end loop;
    end Ball_move;
@@ -53,13 +66,13 @@ package body movement is
       begin
          case State'Length is
             when 1 =>
-               if State (State'First).Y > 290 then
+               if State (State'First).Y > Max_h - Offset then
                   Ball_Orientation := Up;
-               elsif State (State'First).Y < 30 then
+               elsif State (State'First).Y < Offset then
                   Ball_Orientation := Down;
-               elsif State (State'First).X > 210 then
+               elsif State (State'First).X > Max_w - Offset then
                   Ball_Orientation := Left;
-               elsif State (State'First).X < 30 then
+               elsif State (State'First).X < Offset then
                   Ball_Orientation := Right;
                end if;
             when others => null;
