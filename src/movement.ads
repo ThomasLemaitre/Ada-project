@@ -7,6 +7,7 @@ package movement is
 
    procedure Create_keys;
    procedure Ball_Direction;
+   procedure Collision;
    
    task Ball_move is
    end Ball_move ;
