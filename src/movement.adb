@@ -23,6 +23,22 @@ package body movement is
       Display.Hidden_Buffer (1).Draw_Line((0,Max_h - Offset), (Max_w,Max_h - Offset));
    end;
    
+   procedure Collision is
+      
+   begin
+      case Ball_Orientation is
+         when Up => Ball_Pos.Y := Ball_Pos.Y + Box_Size * 2;
+            Ball_Orientation := Down;
+         when Down => Ball_Pos.Y := Ball_Pos.Y - Box_Size * 2;
+            Ball_Orientation := Up;
+         when Left => Ball_Pos.X := Ball_Pos.X + Box_Size * 2;
+            Ball_Orientation := Right;
+         when Right => Ball_Pos.X := Ball_Pos.X - Box_Size * 2;
+            Ball_Orientation := Left;
+      end case;
+   end Collision;
+   
+   
    task body Ball_move is
       use type Ada.Real_Time.Time;
       use type Ada.Real_Time.Time_Span;
@@ -33,25 +49,21 @@ package body movement is
       loop
          delay until Poll_Time;
            case Ball_Orientation is
-            when Up => Ball_Pos.Y := Ball_Pos.Y + Box_Size;
-               if Ball_Pos.Y > Max_h - Offset then
-                  Ball_Pos.Y := Ball_Pos.Y - Box_Size * 2;
-                  Ball_Orientation := Down;
-               end if;
-            when Down => Ball_Pos.Y := Ball_Pos.Y - Box_Size;
+            when Up => Ball_Pos.Y := Ball_Pos.Y - Box_Size;
                if Ball_Pos.Y < Offset then
-                  Ball_Pos.Y := Ball_Pos.Y + Box_Size * 2;
-                  Ball_Orientation := Up;
+                  Collision;
                end if;
-            when Left => Ball_Pos.X := Ball_Pos.X + Box_Size;
-               if Ball_Pos.X > Max_w - Offset then
-                  Ball_Pos.X := Ball_Pos.X - Box_Size * 2;
-                  Ball_Orientation := Right;
+            when Down => Ball_Pos.Y := Ball_Pos.Y + Box_Size;
+               if Ball_Pos.Y > Max_h - Offset then
+                  Collision;
                end if;
-            when Right => Ball_Pos.X := Ball_Pos.X - Box_Size;
+            when Left => Ball_Pos.X := Ball_Pos.X - Box_Size;
                if Ball_Pos.X < Offset then
-                  Ball_Pos.X := Ball_Pos.X + Box_Size * 2;
-                  Ball_Orientation := Left;
+                  Collision;
+               end if;
+            when Right => Ball_Pos.X := Ball_Pos.X + Box_Size;
+               if Ball_Pos.X > Max_w - Offset then
+                  Collision;
                end if;
          end case;
            Poll_Time := Poll_Time + Period;
@@ -67,13 +79,13 @@ package body movement is
          case State'Length is
             when 1 =>
                if State (State'First).Y > Max_h - Offset then
-                  Ball_Orientation := Up;
-               elsif State (State'First).Y < Offset then
                   Ball_Orientation := Down;
+               elsif State (State'First).Y < Offset then
+                  Ball_Orientation := Up;
                elsif State (State'First).X > Max_w - Offset then
-                  Ball_Orientation := Left;
-               elsif State (State'First).X < Offset then
                   Ball_Orientation := Right;
+               elsif State (State'First).X < Offset then
+                  Ball_Orientation := Left;
                end if;
             when others => null;
          end case;
