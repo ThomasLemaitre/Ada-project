@@ -8,17 +8,25 @@ package object is
    end record;
    procedure Print (Self : Wall; Pos : Point);
    procedure Lose (Self : in out Wall);
-   procedure Destroy (Self : Wall);
-   procedure Action (Self : in out Wall);
+   procedure Destroy (Self : in out Wall);
+   procedure Action (Self : in out Wall; Pos : Point);
    procedure Initialize (Self : in out Wall; Life : Natural; Entity : Natural);
 
    type Block_Class is access Wall'Class;
-   type Bombe is new Wall with null record;
+   type Bombe is new Wall with  record
+      Offset : Natural := 10;
+   end record;
    overriding
    procedure Print (Self : Bombe; Pos : Point);
-   procedure Action (Self : in out Bombe);
+   procedure Action (Self : in out Bombe; Pos : Point);
+   procedure Destroy (Self : in out Bombe);
+   procedure Lose (Self : in out Bombe);
 
-   type Player is new Wall with null record;
+   type Player is new Wall with  record
+      Offset : Natural := 10;
+      Pos : Point := (0,0);
+      end record;
    overriding
-     procedure Print (Self : Player; Pos : Point);
+   procedure Print (Self : Player; Pos : Point);
+   procedure Action (Self : in out Player ; Pos : Point);
 end object;

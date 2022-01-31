@@ -71,7 +71,7 @@ begin
    Display.Update_Layer (1, Copy_Back => True);
    grid.Init_Game;
 
-   loop
+   while grid.Is_Player = True loop
       if User_Button.Has_Been_Pressed then
          BG := HAL.Bitmap.Dark_Orange;
       end if;
@@ -79,21 +79,20 @@ begin
       Display.Hidden_Buffer (1).Set_Source (BG);
       Display.Hidden_Buffer (1).Fill;
 
+      movement.Ball_Direction;
 
-      grid.Print_game;
 
-      Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Blue);
-      Display.Hidden_Buffer (1).Fill_Circle (movement.Get_Ball_pos, 10);
-      movement.Create_keys;
 
+      grid.Action_game;
       -- 9x13
       grid.Create_Grid;
+      grid.Print_game;
+      movement.Create_keys;
 
-
-      movement.Ball_Direction;
 
       --  Update screen
       Display.Update_Layer (1, Copy_Back => True);
 
    end loop;
+   --end game
 end Main;

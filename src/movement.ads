@@ -12,7 +12,7 @@ package movement is
    task Ball_move is
    end Ball_move ;
    
-   function Get_Ball_pos return Point;
+   function getBallIndex return Point;
    
 
 end movement;

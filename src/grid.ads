@@ -8,5 +8,9 @@ package grid is
    procedure Create_Grid;
    procedure Init_Game;
    procedure Print_game;
-
+   procedure Action_game;
+   procedure Boom;
+   function Is_empty (Pos : Point) return Boolean;
+   function Is_Player return Boolean;
+   procedure Move_Player (Src : Point; Dst : Point);
 end grid;
