@@ -29,24 +29,23 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 
-
-with Last_Chance_Handler;  pragma Unreferenced (Last_Chance_Handler);
+with Last_Chance_Handler;
+pragma Unreferenced (Last_Chance_Handler);
 --  The "last chance handler" is the user-defined routine that is called when
 --  an exception is propagated. We need it in the executable, therefore it
 --  must be somewhere in the closure of the context clauses.
 
-with STM32.Board;           use STM32.Board;
-with HAL.Bitmap;            use HAL.Bitmap;
+with STM32.Board; use STM32.Board;
+with HAL.Bitmap;  use HAL.Bitmap;
 pragma Warnings (Off, "referenced");
-with HAL.Touch_Panel;       use HAL.Touch_Panel;
-with STM32.User_Button;     use STM32;
+with HAL.Touch_Panel;   use HAL.Touch_Panel;
+with STM32.User_Button; use STM32;
 with BMP_Fonts;
 with LCD_Std_Out;
 with movement;
 with grid;
 
-procedure Main
-is
+procedure Main is
    BG : Bitmap_Color := (Alpha => 255, others => 0);
 begin
 
@@ -71,7 +70,7 @@ begin
    Display.Update_Layer (1, Copy_Back => True);
    grid.Init_Game;
 
-   while grid.Is_Player = True and then grid.Is_win = False loop
+   while grid.Is_Player = True and then grid.Is_Win = False loop
       if User_Button.Has_Been_Pressed then
          BG := HAL.Bitmap.Dark_Orange;
       end if;
@@ -81,32 +80,26 @@ begin
 
       movement.Ball_Direction;
 
-
-
-      grid.Action_game;
+      grid.Action_Game;
       -- 9x13
       grid.Create_Grid;
-      grid.Print_game;
+      grid.Print_Game;
       movement.Create_keys;
-
 
       --  Update screen
       Display.Update_Layer (1, Copy_Back => True);
 
    end loop;
 
-      if grid.Is_Win then
-         LCD_Std_Out.Put_Line("You win!!!!");
-      else
-         LCD_Std_Out.Put_Line ("Game over ...");
+   if grid.Is_Win then
+      LCD_Std_Out.Put_Line ("You win!!!!");
+   else
+      LCD_Std_Out.Put_Line ("Game over ...");
    end if;
 
    loop
       null;
    end loop;
-
-
-
 
    --end game
 end Main;

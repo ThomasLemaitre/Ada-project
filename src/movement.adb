@@ -13,7 +13,7 @@ package body movement is
    Ball_Pos : Point := (30,30);
    Ball_Orientation : Ball_Orientation_Mode := Up;
 
-   procedure Create_keys is
+   procedure Create_Keys is
       
       begin
       Display.Hidden_Buffer (1).Set_Source (HAL.Bitmap.Red);
@@ -39,7 +39,7 @@ package body movement is
    end Collision;
    
    
-   task body Ball_move is
+   task body Ball_Move is
       use type Ada.Real_Time.Time;
       use type Ada.Real_Time.Time_Span;
       Period    : constant Ada.Real_Time.Time_Span := Ada.Real_Time.Milliseconds (700);
@@ -68,9 +68,9 @@ package body movement is
          end case;
            Poll_Time := Poll_Time + Period;
       end loop;
-   end Ball_move;
+   end Ball_Move;
    
-   function getBallIndex return Point is
+   function Get_Ball_Index return Point is
       Pos: Point := (0,0);
    begin
       if Ball_Pos.X < Offset then
@@ -84,7 +84,7 @@ package body movement is
          Pos.Y := (Ball_Pos.Y - Offset) / Box_Size;
       end if;
       return Pos;
-   end getBallIndex;
+   end Get_Ball_Index;
       
    
    

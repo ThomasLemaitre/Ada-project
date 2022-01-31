@@ -31,8 +31,8 @@ package body grid is
       
       for i in Actual_grid'Range(1) loop
          for j in 0..12 loop
-            Actual_grid(i,j) := new object.Wall;
-            Actual_grid(i,j).Initialize( 1, 0);
+            Actual_grid(i,j) := new object.Block;
+            Actual_grid(i,j).Initialize( 0, 0);
          end loop;   
          for j in 3..12 loop
             Entity_number := Entity_number + 1;
@@ -46,7 +46,7 @@ package body grid is
        
    end;
    
-   procedure Print_game is
+   procedure Print_Game is
    begin
       for i in Actual_grid'Range(1) loop
          for j in Actual_grid'Range(2) loop
@@ -58,16 +58,20 @@ package body grid is
       
    end;
    
-   procedure Action_game is
+   procedure Action_Game is
       New_Pos : Point;
       Old_pos : Point;
    begin
-      New_Pos := movement.getBallIndex;
+      New_Pos := movement.Get_Ball_index;
       Old_pos := Player_Pos;
       if New_Pos /= Player_Pos then
          My_Player.Action(New_Pos);
          if Is_Bombe then
             My_Bomb.Action(Bombe_Pos);
+            if my_bomb.life = 0 then
+               Actual_grid(Bombe_Pos.x, Bombe_Pos.y) := new object.Block;
+               Is_Bombe := False;
+               end if;
          end if;
          if Count = 5 then
             Count := 0;
@@ -83,7 +87,7 @@ package body grid is
       
    end;
    
-   function Is_empty (Pos : Point) return Boolean is
+   function Is_Empty (Pos : Point) return Boolean is
    begin
       if Actual_grid(Pos.X, Pos.Y).Entity /= 0 then 
          return False;
@@ -135,15 +139,19 @@ package body grid is
       end if;
       
       for i in minX .. maxX loop
-         Actual_grid(i, Bombe_Pos.Y).Lose;
+         if i /= Bombe_Pos.X then
+               Actual_grid(i, Bombe_Pos.Y).Lose;
+            end if;
       end loop;
       for j in minY .. maxY loop
-         Actual_grid(Bombe_Pos.X, j).Lose;
+          if j /= Bombe_Pos.Y then
+            Actual_grid(Bombe_Pos.X, j).Lose;
+            end if;
       end loop;
-      Win := Is_finished;
+      Win := Is_Finished;
    end;
    
-   function Is_finished return Boolean is
+   function Is_Finished return Boolean is
    begin
       for i in Actual_grid'Range(1) loop
          for j in Actual_grid'Range(2) loop
