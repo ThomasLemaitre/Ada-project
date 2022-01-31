@@ -13,6 +13,7 @@ package body grid is
    Player_Pos : Point := (0,0); 
    Bombe_Pos : Point := (0,0);
    Count : Natural := 0;
+   Win : Boolean := False;
    
    procedure Create_Grid is
       begin
@@ -94,6 +95,11 @@ package body grid is
       return (if My_Player.Entity = 0 then False else True);
    end;
    
+   function Is_Win return Boolean is
+   begin
+      return Win;
+   end;
+   
    procedure Boom is
       minX : Natural;
       maxX : Natural;
@@ -134,7 +140,21 @@ package body grid is
       for j in minY .. maxY loop
          Actual_grid(Bombe_Pos.X, j).Lose;
       end loop;
+      Win := Is_finished;
    end;
+   
+   function Is_finished return Boolean is
+   begin
+      for i in Actual_grid'Range(1) loop
+         for j in Actual_grid'Range(2) loop
+            if Actual_grid(i,j).Entity = 2 then
+               return False;
+            end if;
+         end loop;
+      end loop;
+      Return True;
+   end;
+     
    
    procedure Move_Player (Src : Point; Dst : Point) is
       Tmp : object.Block_Class;

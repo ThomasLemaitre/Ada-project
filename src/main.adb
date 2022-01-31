@@ -71,7 +71,7 @@ begin
    Display.Update_Layer (1, Copy_Back => True);
    grid.Init_Game;
 
-   while grid.Is_Player = True loop
+   while grid.Is_Player = True and then grid.Is_win = False loop
       if User_Button.Has_Been_Pressed then
          BG := HAL.Bitmap.Dark_Orange;
       end if;
@@ -94,5 +94,19 @@ begin
       Display.Update_Layer (1, Copy_Back => True);
 
    end loop;
+
+      if grid.Is_Win then
+         LCD_Std_Out.Put_Line("You win!!!!");
+      else
+         LCD_Std_Out.Put_Line ("Game over ...");
+   end if;
+
+   loop
+      null;
+   end loop;
+
+
+
+
    --end game
 end Main;

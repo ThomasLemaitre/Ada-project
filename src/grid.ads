@@ -12,5 +12,7 @@ package grid is
    procedure Boom;
    function Is_empty (Pos : Point) return Boolean;
    function Is_Player return Boolean;
+   function Is_Win return Boolean;
+   function Is_finished return Boolean;
    procedure Move_Player (Src : Point; Dst : Point);
 end grid;
